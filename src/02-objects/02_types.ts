@@ -15,6 +15,7 @@ export type GovernmentBuildingsProps = {
 }
 
 export type HousesProps = {
+    id: number,
     buildedAt: number,
     repaired: boolean,
     address: AddressProps
