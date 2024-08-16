@@ -1,5 +1,5 @@
-import { CityProps } from "../02-objects/02_types";
-import { changeBudget, repairHouse, toFireStaff, toHireStaff } from "./03";
+import {CityProps} from '../02-objects/02_types';
+import {changeBudget, repairHouse, toFireStaff, toHireStaff} from './03';
 
 let city: CityProps;
 
@@ -14,7 +14,7 @@ beforeEach(() => {
                 address: {
                     number: 100,
                     street: {
-                        title: "White street"
+                        title: 'White street'
                     }
                 }
             },
@@ -25,7 +25,7 @@ beforeEach(() => {
                 address: {
                     number: 100,
                     street: {
-                        title: "Happy street"
+                        title: 'Happy street'
                     }
                 }
             },
@@ -36,29 +36,29 @@ beforeEach(() => {
                 address: {
                     number: 200,
                     street: {
-                        title: "Hogwarts street"
+                        title: 'Hogwarts street'
                     }
                 }
             }
         ],
         governmentBuildings: [
             {
-                type: "HOSPITAL",
+                type: 'HOSPITAL',
                 budget: 200000,
                 staffCount: 200,
                 address: {
                     street: {
-                        title: "Central Str"
+                        title: 'Central Str'
                     }
                 }
             },
             {
-                type: "FIRE-STATION",
+                type: 'FIRE-STATION',
                 budget: 500000,
                 staffCount: 1000,
                 address: {
                     street: {
-                        title: "Souths park str"
+                        title: 'Souths park str'
                     }
                 }
             }
