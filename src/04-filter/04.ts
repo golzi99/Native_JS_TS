@@ -1,12 +1,10 @@
-const ages = [18, 20, 100, 90, 55, 23]
+import {CityProps, GovernmentBuildingsProps} from '../02-objects/02_types';
 
-type CourseType = {
-    title: string,
-    price: number
+export const demolishHousesOnTheStreet = (city: CityProps, street: string) => {
+    city.houses = city.houses.filter(house =>
+        house.address.street.title !== street)
 }
 
-const courses = [
-    {title: "CSS", price: 150},
-    {title: "JS", price: 200},
-    {title: "React", price: 110},
-]
+export const getBuildingsWithStaffCountGreaterThen =(governmentBuildings: Array<GovernmentBuildingsProps>, staffCount: number) => {
+    return governmentBuildings.filter(building => building.staffCount > staffCount)
+}

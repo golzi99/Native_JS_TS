@@ -1,9 +1,16 @@
+import {getStreetsTitlesOfGovernmentBuildings, getStreetsTitlesOfHouses, ManType} from './05';
 import {CityProps} from '../02-objects/02_types';
-import {demolishHousesOnTheStreet, getBuildingsWithStaffCountGreaterThen} from './04';
 
-let city: CityProps;
+let people : Array<ManType>
+let city: CityProps
 
 beforeEach(() => {
+    people = [
+        {name: "Andrew Ivanov", age: 33},
+        {name: "Alexander Petrov", age: 24},
+        {name: "Dmitry Sidorov", age: 18},
+    ]
+
     city = {
         title: 'New York',
         houses: [
@@ -59,7 +66,7 @@ beforeEach(() => {
                 staffCount: 1000,
                 address: {
                     street: {
-                        title: 'Souths park str'
+                        title: 'South Str'
                     }
                 }
             }
@@ -68,43 +75,30 @@ beforeEach(() => {
     }
 })
 
+test('should get array of greeting messages', () => {
+    const messages = people.map(man => `Hello ${man.name.split(' ')[0]}. Welcome to IT`)
 
-test("should take old men older then 90", () => {
-    const ages = [18, 20, 100, 90, 55, 23]
-
-    const oldAges = ages.filter(age => age > 90)
-
-    expect(oldAges.length).toBe(1)
-    expect(oldAges[0]).toBe(100)
+    expect(messages.length).toBe(3)
+    expect(messages[0]).toBe('Hello Andrew. Welcome to IT')
+    expect(messages[1]).toBe('Hello Alexander. Welcome to IT')
+    expect(messages[2]).toBe('Hello Dmitry. Welcome to IT')
 })
 
-test("should take couses chipper 160", () => {
-    const courses = [
-        {title: "CSS", price: 150},
-        {title: "JS", price: 200},
-        {title: "React", price: 110},
-    ]
+// 01. создайте в том же файле ещё одну функцию, чтобы тесты прошли
+test('list of streets titles of government buildings', ()=> {
+    let streetsNames = getStreetsTitlesOfGovernmentBuildings(city.governmentBuildings);
 
-    const chipCourses = courses.filter(course => course.price < 160)
-
-    expect(chipCourses.length).toBe(2)
-    expect(chipCourses[0].title).toBe("CSS")
-    expect(chipCourses[1].title).toBe("React")
+    expect(streetsNames.length).toBe(2);
+    expect(streetsNames[0]).toBe("Central Str");
+    expect(streetsNames[1]).toBe("South Str");
 })
 
-// 02. Создайте в том же файле ещё одну функцию, чтобы тесты прошли
-test('House should be destroyed', () => {
-    demolishHousesOnTheStreet(city, 'Happy street');
+//02. создайте в том же файле ещё одну функцию, чтобы тесты прошли
+test('list of streets titles', ()=> {
+    let streetsNames = getStreetsTitlesOfHouses(city.houses);
 
-    expect(city.houses.length).toBe(1);
-    expect(city.houses[0].id).toBe(1);
-
-})
-
-// 03. Массив строений, где работают больше 500 людей
-test('buildings with correct staff count', () => {
-    let buildings = getBuildingsWithStaffCountGreaterThen(city.governmentBuildings, 500)
-
-    expect(buildings.length).toBe(1);
-    expect(buildings[0].type).toBe('FIRE-STATION')
+    expect(streetsNames.length).toBe(3);
+    expect(streetsNames[0]).toBe("White street");
+    expect(streetsNames[1]).toBe("Happy street");
+    expect(streetsNames[2]).toBe("Happy street");
 })
