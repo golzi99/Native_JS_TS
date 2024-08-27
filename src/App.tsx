@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {User} from './06-callbacks/06-callbacks';
+import {User} from './05-map/06-callbacks';
 
 function App() {
     // function getCount(str: string) {
