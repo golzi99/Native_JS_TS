@@ -4,7 +4,6 @@
 //
 // window.setTimeout(callback, 1000)
 
-import App from '../App';
 import {ChangeEvent, MouseEvent} from 'react';
 
 export const User = () => {
